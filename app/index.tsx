@@ -1,38 +1,33 @@
-'use client'
+'use client';
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import { 
-  ChevronDown, 
-  Menu, 
-  X, 
-  ExternalLink, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Code, 
-  Database, 
-  Palette, 
-  BarChart3, 
-  Monitor, 
-  Cloud, 
-  Briefcase, 
-  User, 
+import {
+  ChevronDown,
+  Menu,
+  X,
+  ExternalLink,
+  Mail,
+  MapPin,
+  Code,
+  Palette,
+  BarChart3,
+  Cloud,
+  Briefcase,
+  User,
   Award,
   Calendar,
   Star,
   ArrowRight,
   Github,
   Linkedin,
-  Twitter,
   Globe,
   Layers,
   Zap,
-  Target,
   Settings
 } from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -69,35 +64,37 @@ const Portfolio = () => {
       color: "from-orange-500 to-amber-500"
     }
   ];
- const projects = [
+
+  const projects = [
     {
-    id: 1,
-    title: "BookHive (E-Commerce Platform)",
-    description: "Modern e-commerce solution with advanced features",
-    category: "Web Development",
-    image: "bookhive.png",
-    tags: ["E-commerce", "Web Development", "UI/UX"],
-    icon: <Globe className="w-5 h-5 text-purple-600" />,
-    link: "https://bookhive.firedevs.in/"
+      id: 1,
+      title: "BookHive (E-Commerce Platform)",
+      description: "Modern e-commerce solution with advanced features",
+      category: "Web Development",
+      image: "/bookhive.png",
+      tags: ["E-commerce", "Web Development", "UI/UX"],
+      icon: <Globe className="w-5 h-5 text-purple-600" />,
+      link: "https://bookhive.firedevs.in/"
     },
     {
       id: 2,
-    title: "Advertisement",
-    description: "UI UX design for Donuts advertisement",
-    category: "UI/UX",
-    image: "donut.png",
-    tags: ["Design", "Advertisement", "Branding"],
-    icon: <Layers className="w-5 h-5 text-purple-600" />,
-      link: "https://www.figma.com/proto/Rb228sL8swTQjJmApoIqa7/donuts?node-id=2-2&t=R2yKcRd7kGfTWNN1-1"
+      title: "Advertisement",
+      description: "UI UX design for Donuts advertisement",
+      category: "UI/UX",
+      image: "/donut.png",
+      tags: ["Design", "Advertisement", "Branding"],
+      icon: <Layers className="w-5 h-5 text-purple-600" />,
+      link: "https://www.figma.com/proto/Rb228sL8swTQjJmApoIqa7/donuts?node-id=2-2"
     },
     {
       id: 3,
-    title: "Shoe Advertisement",
-    description: "Intuitive mobile application interface design",
-    category: "UI/UX",
-    image: "shoe.png",
-    tags: ["Mobile Design", "UI/UX", "Product"],
-      link: "https://www.figma.com/design/DLSPkme69U1CJr7jHSvJ8M/FIRST-FIGMA-FILE?node-id=0-1&t=UNVBaX00TPTqORJw-1"
+      title: "Shoe Advertisement",
+      description: "Intuitive mobile application interface design",
+      category: "UI/UX",
+      image: "/shoe.png",
+      tags: ["Mobile Design", "UI/UX", "Product"],
+      icon: <Layers className="w-5 h-5 text-purple-600" />,
+      link: "https://www.figma.com/design/DLSPkme69U1CJr7jHSvJ8M/FIRST-FIGMA-FILE?node-id=0-1"
     }
   ];
 
@@ -105,10 +102,10 @@ const Portfolio = () => {
     {
       title: "BUSINESS ANALYST INTERN",
       company: "Alobha Technologies",
-      duration: "(December 2024-January 2025)",
-      description: "Gained valuable experience in documentation, requirement gathering, and market research. Improved analytical and communication skills through practical exposure to real-world projects",
+      duration: "(December 2024 - January 2025)",
+      description: "Gained valuable experience in documentation, requirement gathering, and market research. Improved analytical and communication skills through practical exposure to real-world projects.",
       icon: <Briefcase className="w-6 h-6" />
-    },
+    }
   ];
 
   const stats = [
@@ -131,55 +128,32 @@ const Portfolio = () => {
 
   return (
     <div className="bg-purple-50 min-h-screen">
-      {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <div className="p-2 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg">
-                <User className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">PORTFOLIO</div>
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <div className="p-2 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg">
+              <User className="w-6 h-6 text-white" />
             </div>
-            
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects','Experience', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-purple-700 hover:text-purple-900 font-medium transition-colors duration-200 flex items-center space-x-1"
-                >
-                  <span>{item}</span>
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-purple-700 p-2 rounded-lg hover:bg-purple-100 transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">PORTFOLIO</div>
           </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg">
-              {['Home', 'About', 'Skills', 'Projects','Experience', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block py-3 px-4 text-purple-700 hover:text-purple-900 hover:bg-purple-50 font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          )}
+          <div className="hidden md:flex space-x-8">
+            {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-purple-700 hover:text-purple-900 font-medium transition-colors duration-200">{item}</a>
+            ))}
+          </div>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-purple-700 p-2 rounded-lg hover:bg-purple-100 transition-colors">
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg">
+            {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="block py-3 px-4 text-purple-700 hover:text-purple-900 hover:bg-purple-50 font-medium" onClick={() => setIsMenuOpen(false)}>
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -223,7 +197,7 @@ const Portfolio = () => {
                 </div>
                 <h2 className="text-4xl font-bold text-purple-800">
                   HELLO<br />
-                  I'M ANAMIKA
+                  I&#39;M ANAMIKA
                 </h2>
               </div>
               <p className="text-purple-700 mb-6 leading-relaxed">
@@ -253,7 +227,7 @@ const Portfolio = () => {
             <div className="relative">
               <div className="w-80 h-100 mx-auto overflow-hidden rounded-full bg-gradient-to-br from-purple-200 to-purple-300 p-2">
                 <div className="w-full h-full rounded-full overflow-hidden bg-white">
-                  <img 
+                  <Image 
                   src={"/anamikaimg.jpg"}
                   alt="Profile Picture"
                   width={500}
@@ -326,7 +300,7 @@ const Portfolio = () => {
               {/* Project Image */}
               <div className="relative overflow-hidden rounded-2xl mb-6 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img 
+                  <Image 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -427,10 +401,10 @@ const Portfolio = () => {
                 <div className="p-3 bg-purple-100 rounded-xl">
                   <Mail className="w-8 h-8 text-purple-600" />
                 </div>
-                <h2 className="text-4xl font-bold text-purple-800">LET'S WORK TOGETHER</h2>
+                <h2 className="text-4xl font-bold text-purple-800">LET&#39;S WORK TOGETHER</h2>
               </div>
               <p className="text-purple-600 mb-8 leading-relaxed">
-                Ready to bring your vision to life? I'd love to hear about your project and explore how we can create something amazing together.
+                Ready to bring your vision to life? I&#39;d love to hear about your project and explore how we can create something amazing together.
               </p>
               
               <div className="space-y-6">
