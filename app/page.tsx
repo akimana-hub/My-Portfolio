@@ -112,17 +112,17 @@ const Portfolio = () => {
     {
       number: "8.7",
       label: "CGPA",
-      icon: <Award className="w-6 h-6" />
+      icon: <Award className="w-6 h-6 text-purple-800" />
     },
     {
       number: "5+",
       label: "Programming Tools",
-      icon: <Settings className="w-6 h-6" />
+      icon: <Settings className="w-6 h-6 text-purple-800" />
     },
     {
       number: "1 month",
       label: "Internship Experience",
-      icon: <Calendar className="w-6 h-6" />
+      icon: <Calendar className="w-6 h-6 text-purple-800" />
     }
   ];
 
@@ -301,9 +301,10 @@ const Portfolio = () => {
               <div className="relative overflow-hidden rounded-2xl mb-6 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="aspect-[4/3] overflow-hidden">
                   <Image 
-                    src={project.image} 
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover rounded-lg"
                   />
                 </div>
                 
